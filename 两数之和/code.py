@@ -1,3 +1,4 @@
+# way one
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         # 返回nums升序排列的下标
@@ -12,3 +13,28 @@ class Solution:
                 head  += 1
             sum_result = nums[sorted_id[head]] + nums[sorted_id[tail]]
         return [sorted_id[head], sorted_id[tail]]
+
+
+# way two
+class Solution:
+    def twoSum(self, nums:List[int], target:int) -> List[int]:
+        nums_bak = nums.copy()
+        i = 0
+        result = []             
+        while len(nums) > 0:
+            temp = nums_bak[i]  
+            # 避免使用相同值，temp == pop
+            nums_bak[i] = 'x'
+            pop = nums.pop(0)           
+            if target - pop in nums_bak:
+                nub = nums_bak.index(target - pop)
+                if i != nub:
+                    result.append(i)
+                    result.append(nub)
+                    break
+            nums_bak[i] = temp
+            i += 1
+        return result
+
+
+
