@@ -8,10 +8,10 @@
 
 
 def fib(idx):
-    if (idx < 1):
+    if idx < 1:
         return 0
 
-    if (idx < 3):
+    if idx < 3:
         return 1
 
     print(fib(idx - 1) + fib(idx - 2))
